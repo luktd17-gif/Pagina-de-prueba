@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+<script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 300px;
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #4facfe;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #007bff;
+        }
+
+        #resultado {
+            margin-top: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .aprobado { color: green; }
+        .excelente { color: blue; }
+        .recuperacion { color: orange; }
+        .reprobado { color: red; }
+        .error { color: black; }
+
+        .animar {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>🎓 Evaluar Nota</h2>
+
+    <input type="number" id="nota" placeholder="0 - 100">
+    <br>
+    <button py-click="evaluar">Evaluar</button>
+
+    <p id="resultado"></p>
+</div>
+
+<py-script>
+from pyscript import document
+
+def evaluar(event):
+    resultado = document.getElementById("resultado")
+
+    try:
+        n1 = int(document.getElementById("nota").value)
+
+        resultado.className = ""
+
+        if n1 >= 60 and n1 < 90:
+            texto = "Aprobado"
+            resultado.classList.add("aprobado")
+        elif n1 >= 90 and n1 <= 100:
+            texto = "Excelente"
+            resultado.classList.add("excelente")
+        elif n1 >= 40 and n1 <= 59:
+            texto = "Recuperación"
+            resultado.classList.add("recuperacion")
+        elif n1 < 40:
+            texto = "Reprobado"
+            resultado.classList.add("reprobado")
+        else:
+            texto = "Error: nota no válida"
+            resultado.classList.add("error")
+
+        resultado.innerText = texto
+
+        # animación simple sin bloquear
+        resultado.classList.add("animar")
+
+    except:
+        resultado.innerText = "Ingrese un número válido"
+        resultado.className = "error"
+</py-script>
+
+</body>
+</html>
