@@ -4,18 +4,19 @@
 <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
 <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 
-    <style>
-   body {
-    font-family: Arial, sans-serif;
-    background: url("./fondo.jpg") no-repeat center center fixed;
-    background-size: cover;
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: url("./fondo.jpg") no-repeat center center fixed;
+        background-size: cover;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
- .card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .card {
         background: white;
         padding: 30px;
         border-radius: 15px;
@@ -23,48 +24,24 @@
         box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         width: 300px;
     }
+
+    input {
+        padding: 10px;
+        width: 80%;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        background: #4facfe;
+        color: white;
+        cursor: pointer;
+    }
 </style>
-        }
-
-        input {
-            padding: 10px;
-            width: 80%;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-        }
-
-        button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            background: #4facfe;
-            color: white;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background: #007bff;
-        }
-
-        #resultado {
-            margin-top: 15px;
-            font-size: 20px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .aprobado { color: green; }
-        .excelente { color: blue; }
-        .recuperacion { color: orange; }
-        .reprobado { color: red; }
-        .error { color: black; }
-
-        .animar {
-            transform: scale(1.2);
-        }
-    </style>
 </head>
 
 <body>
